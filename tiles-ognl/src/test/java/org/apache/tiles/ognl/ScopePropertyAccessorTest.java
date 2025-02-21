@@ -20,14 +20,20 @@
  */
 package org.apache.tiles.ognl;
 
-import static org.easymock.classextension.EasyMock.*;
-import static org.junit.Assert.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import java.util.Map;
 
 import org.apache.tiles.request.Request;
 import org.junit.Before;
 import org.junit.Test;
+
+import ognl.OgnlContext;
 
 /**
  * Tests {@link ScopePropertyAccessor}.
@@ -50,7 +56,8 @@ public class ScopePropertyAccessorTest {
     }
 
     /**
-     * Test method for {@link ScopePropertyAccessor#getProperty(Map, Object, Object)}.
+     * Test method for
+     * {@link ScopePropertyAccessor#getProperty(Map, Object, Object)}.
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -67,7 +74,8 @@ public class ScopePropertyAccessorTest {
     }
 
     /**
-     * Test method for {@link ScopePropertyAccessor#getSourceAccessor(OgnlContext, Object, Object)}.
+     * Test method for
+     * {@link ScopePropertyAccessor#getSourceAccessor(OgnlContext, Object, Object)}.
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -83,7 +91,8 @@ public class ScopePropertyAccessorTest {
     }
 
     /**
-     * Test method for {@link ScopePropertyAccessor#getSourceSetter(OgnlContext, Object, Object)}.
+     * Test method for
+     * {@link ScopePropertyAccessor#getSourceSetter(OgnlContext, Object, Object)}.
      */
     @Test
     public void testGetSourceSetter() {
@@ -91,7 +100,8 @@ public class ScopePropertyAccessorTest {
     }
 
     /**
-     * Test method for {@link ScopePropertyAccessor#setProperty(Map, Object, Object, Object)}.
+     * Test method for
+     * {@link ScopePropertyAccessor#setProperty(Map, Object, Object, Object)}.
      */
     @Test
     public void testSetProperty() {

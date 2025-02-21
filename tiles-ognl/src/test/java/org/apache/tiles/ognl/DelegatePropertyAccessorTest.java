@@ -21,16 +21,19 @@
 
 package org.apache.tiles.ognl;
 
-import static org.junit.Assert.*;
-import static org.easymock.classextension.EasyMock.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Map;
+
+import org.junit.Test;
 
 import ognl.OgnlContext;
 import ognl.OgnlException;
 import ognl.PropertyAccessor;
-
-import org.junit.Test;
 
 /**
  * Tests {@link DelegatePropertyAccessor}.
@@ -40,7 +43,9 @@ import org.junit.Test;
 public class DelegatePropertyAccessorTest {
 
     /**
-     * Test method for {@link DelegatePropertyAccessor#getProperty(java.util.Map, Object, Object)}.
+     * Test method for
+     * {@link DelegatePropertyAccessor#getProperty(java.util.Map, Object, Object)}.
+     * 
      * @throws OgnlException If something goes wrong.
      */
     @SuppressWarnings("unchecked")
@@ -59,7 +64,9 @@ public class DelegatePropertyAccessorTest {
     }
 
     /**
-     * Test method for {@link DelegatePropertyAccessor#setProperty(java.util.Map, Object, Object, Object)}.
+     * Test method for
+     * {@link DelegatePropertyAccessor#setProperty(java.util.Map, Object, Object, Object)}.
+     * 
      * @throws OgnlException If something goes wrong.
      */
     @SuppressWarnings("unchecked")
@@ -78,7 +85,8 @@ public class DelegatePropertyAccessorTest {
     }
 
     /**
-     * Test method for {@link DelegatePropertyAccessor#getSourceAccessor(ognl.OgnlContext, Object, Object)}.
+     * Test method for
+     * {@link DelegatePropertyAccessor#getSourceAccessor(ognl.OgnlContext, Object, Object)}.
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -96,7 +104,8 @@ public class DelegatePropertyAccessorTest {
     }
 
     /**
-     * Test method for {@link DelegatePropertyAccessor#getSourceSetter(ognl.OgnlContext, Object, Object)}.
+     * Test method for
+     * {@link DelegatePropertyAccessor#getSourceSetter(ognl.OgnlContext, Object, Object)}.
      */
     @SuppressWarnings("unchecked")
     @Test

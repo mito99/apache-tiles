@@ -20,15 +20,21 @@
  */
 package org.apache.tiles.ognl;
 
-import java.util.Arrays;
-import static org.easymock.classextension.EasyMock.*;
-import static org.junit.Assert.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
+import java.util.Arrays;
 import java.util.Map;
 
 import org.apache.tiles.request.Request;
 import org.junit.Before;
 import org.junit.Test;
+
+import ognl.OgnlContext;
 
 /**
  * Tests {@link AnyScopePropertyAccessor}.
@@ -51,7 +57,8 @@ public class AnyScopePropertyAccessorTest {
     }
 
     /**
-     * Test method for {@link AnyScopePropertyAccessor#getProperty(java.util.Map, java.lang.Object, java.lang.Object)}.
+     * Test method for
+     * {@link AnyScopePropertyAccessor#getProperty(java.util.Map, java.lang.Object, java.lang.Object)}.
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -60,7 +67,7 @@ public class AnyScopePropertyAccessorTest {
         Map<String, Object> oneScope = createMock(Map.class);
         Map<String, Object> twoScope = createMock(Map.class);
 
-        expect(request.getAvailableScopes()).andReturn(Arrays.asList(new String[] {"one", "two"})).anyTimes();
+        expect(request.getAvailableScopes()).andReturn(Arrays.asList(new String[] { "one", "two" })).anyTimes();
         expect(request.getContext("one")).andReturn(oneScope).anyTimes();
         expect(request.getContext("two")).andReturn(twoScope).anyTimes();
         expect(oneScope.containsKey("name1")).andReturn(true);
@@ -79,7 +86,8 @@ public class AnyScopePropertyAccessorTest {
     }
 
     /**
-     * Test method for {@link AnyScopePropertyAccessor#getSourceAccessor(OgnlContext, Object, Object)}.
+     * Test method for
+     * {@link AnyScopePropertyAccessor#getSourceAccessor(OgnlContext, Object, Object)}.
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -88,7 +96,7 @@ public class AnyScopePropertyAccessorTest {
         Map<String, Object> oneScope = createMock(Map.class);
         Map<String, Object> twoScope = createMock(Map.class);
 
-        expect(request.getAvailableScopes()).andReturn(Arrays.asList(new String[] {"one", "two"})).anyTimes();
+        expect(request.getAvailableScopes()).andReturn(Arrays.asList(new String[] { "one", "two" })).anyTimes();
         expect(request.getContext("one")).andReturn(oneScope).anyTimes();
         expect(request.getContext("two")).andReturn(twoScope).anyTimes();
         expect(oneScope.containsKey("name1")).andReturn(true);
@@ -105,7 +113,8 @@ public class AnyScopePropertyAccessorTest {
     }
 
     /**
-     * Test method for {@link AnyScopePropertyAccessor#getSourceSetter(OgnlContext, Object, Object)}.
+     * Test method for
+     * {@link AnyScopePropertyAccessor#getSourceSetter(OgnlContext, Object, Object)}.
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -114,7 +123,7 @@ public class AnyScopePropertyAccessorTest {
         Map<String, Object> oneScope = createMock(Map.class);
         Map<String, Object> twoScope = createMock(Map.class);
 
-        expect(request.getAvailableScopes()).andReturn(Arrays.asList(new String[] {"one", "two"})).anyTimes();
+        expect(request.getAvailableScopes()).andReturn(Arrays.asList(new String[] { "one", "two" })).anyTimes();
         expect(request.getContext("one")).andReturn(oneScope).anyTimes();
         expect(request.getContext("two")).andReturn(twoScope).anyTimes();
         expect(oneScope.containsKey("name1")).andReturn(true);
@@ -131,7 +140,8 @@ public class AnyScopePropertyAccessorTest {
     }
 
     /**
-     * Test method for {@link AnyScopePropertyAccessor#setProperty(Map, Object, Object, Object)}.
+     * Test method for
+     * {@link AnyScopePropertyAccessor#setProperty(Map, Object, Object, Object)}.
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -140,7 +150,7 @@ public class AnyScopePropertyAccessorTest {
         Map<String, Object> oneScope = createMock(Map.class);
         Map<String, Object> twoScope = createMock(Map.class);
 
-        expect(request.getAvailableScopes()).andReturn(Arrays.asList(new String[] {"one", "two"})).anyTimes();
+        expect(request.getAvailableScopes()).andReturn(Arrays.asList(new String[] { "one", "two" })).anyTimes();
         expect(request.getContext("one")).andReturn(oneScope).anyTimes();
         expect(request.getContext("two")).andReturn(twoScope).anyTimes();
         expect(oneScope.containsKey("name1")).andReturn(true);
