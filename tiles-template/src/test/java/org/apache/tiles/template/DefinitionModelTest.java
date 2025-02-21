@@ -21,8 +21,13 @@
 
 package org.apache.tiles.template;
 
-import static org.easymock.EasyMock.*;
-import static org.junit.Assert.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.eq;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.notNull;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
 import java.util.ArrayDeque;
@@ -64,6 +69,7 @@ public class DefinitionModelTest {
      * Test method for {@link org.apache.tiles.template.DefinitionModel
      * #execute(java.lang.String, java.lang.String,
      * java.lang.String, java.lang.String, java.lang.String, Request, ModelBody)}.
+     * 
      * @throws IOException If something goes wrong.
      */
     @Test

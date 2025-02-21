@@ -20,13 +20,14 @@
  */
 package org.apache.tiles.el;
 
-import javax.el.ELResolver;
-import javax.el.ExpressionFactory;
-import javax.el.ValueExpression;
-
 import org.apache.tiles.evaluator.AbstractAttributeEvaluator;
 import org.apache.tiles.request.ApplicationContext;
 import org.apache.tiles.request.Request;
+
+import jakarta.el.ELResolver;
+import jakarta.el.ExpressionFactory;
+import jakarta.el.StandardELContext;
+import jakarta.el.ValueExpression;
 
 /**
  * Evaluates string expression with typical EL syntax.<br>
@@ -45,8 +46,7 @@ public class ELAttributeEvaluator extends AbstractAttributeEvaluator {
      *
      * @since 2.2.1
      */
-    public static final String EXPRESSION_FACTORY_FACTORY_INIT_PARAM =
-        "org.apache.tiles.evaluator.el.ExpressionFactoryFactory";
+    public static final String EXPRESSION_FACTORY_FACTORY_INIT_PARAM = "org.apache.tiles.evaluator.el.ExpressionFactoryFactory";
 
     /**
      * The EL expression factory.
@@ -92,13 +92,13 @@ public class ELAttributeEvaluator extends AbstractAttributeEvaluator {
 
     /** {@inheritDoc} */
     public Object evaluate(String expression, Request request) {
-        ELContextImpl context = new ELContextImpl(resolver);
+        StandardELContext context = new StandardELContext(expressionFactory);
+        context.addELResolver(resolver);
         context.putContext(Request.class, request);
-        context.putContext(ApplicationContext.class,
-                request.getApplicationContext());
+        context.putContext(ApplicationContext.class, request.getApplicationContext());
+
         ValueExpression valueExpression = expressionFactory
                 .createValueExpression(context, expression, Object.class);
-
         return valueExpression.getValue(context);
     }
 }

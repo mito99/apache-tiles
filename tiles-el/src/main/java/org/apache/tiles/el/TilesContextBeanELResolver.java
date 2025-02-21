@@ -26,10 +26,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import javax.el.ELContext;
-import javax.el.ELResolver;
-
 import org.apache.tiles.request.Request;
+
+import jakarta.el.ELContext;
+import jakarta.el.ELResolver;
 
 /**
  * Resolves beans in request, session and application scope.
@@ -115,7 +115,7 @@ public class TilesContextBeanELResolver extends ELResolver {
     /**
      * Collects bean infos from a map's values and filling a list.
      *
-     * @param map The map containing the bean to be inspected.
+     * @param map  The map containing the bean to be inspected.
      * @param list The list to fill.
      * @since 2.2.1
      */
@@ -142,7 +142,7 @@ public class TilesContextBeanELResolver extends ELResolver {
     /**
      * Finds an object in request, session or application scope, in this order.
      *
-     * @param context The context to use.
+     * @param context  The context to use.
      * @param property The property used as an attribute name.
      * @return The found bean, if it exists, or <code>null</code> otherwise.
      * @since 2.2.1
@@ -168,7 +168,7 @@ public class TilesContextBeanELResolver extends ELResolver {
     /**
      * Returns an object from a map in a null-safe manner.
      *
-     * @param map The map to use.
+     * @param map      The map to use.
      * @param property The property to use as a key.
      * @return The object, if present, or <code>null</code> otherwise.
      * @since 2.2.1

@@ -20,8 +20,14 @@
  */
 package org.apache.tiles.el;
 
-import static org.easymock.classextension.EasyMock.*;
-import static org.junit.Assert.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.expectLastCall;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import java.beans.FeatureDescriptor;
 import java.beans.PropertyDescriptor;
@@ -29,14 +35,14 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import javax.el.ELContext;
-import javax.el.ELResolver;
-
 import org.apache.tiles.request.ApplicationContext;
 import org.apache.tiles.request.Request;
 import org.apache.tiles.request.reflect.ClassUtil;
 import org.junit.Before;
 import org.junit.Test;
+
+import jakarta.el.ELContext;
+import jakarta.el.ELResolver;
 
 /**
  * Tests {@link TilesContextELResolver}.
@@ -178,7 +184,8 @@ public class TilesContextELResolverTest {
     }
 
     /**
-     * Tests {@link TilesContextELResolver#setValue(ELContext, Object, Object, Object)}.
+     * Tests
+     * {@link TilesContextELResolver#setValue(ELContext, Object, Object, Object)}.
      */
     @Test
     public void testSetValue() {

@@ -21,7 +21,8 @@
  * under the License.
  */
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <parent>
     <groupId>org.apache.tiles</groupId>
@@ -37,9 +38,8 @@
   </description>
 
   <properties>
-      <tiles.osgi.symbolicName>org.apache.tiles.core</tiles.osgi.symbolicName>
-      <!-- decrease this whenever possible -->
-      <checkstyle.maxAllowedViolations>25</checkstyle.maxAllowedViolations>
+    <!-- decrease this whenever possible -->
+    <checkstyle.maxAllowedViolations>25</checkstyle.maxAllowedViolations>
   </properties>
 
   <build>
@@ -60,17 +60,6 @@
         <targetPath>META-INF</targetPath>
       </resource>
     </resources>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <configuration>
-        <argLine>
-            --add-opens java.base/java.lang=ALL-UNNAMED
-          </argLine>
-        </configuration>
-      </plugin>
-    </plugins>
   </build>
 
   <reporting>
@@ -128,12 +117,6 @@
     </dependency>
 
     <dependency>
-      <groupId>org.easymock</groupId>
-      <artifactId>easymockclassextension</artifactId>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
       <groupId>org.apache.shale</groupId>
       <artifactId>shale-test</artifactId>
       <scope>test</scope>
@@ -142,8 +125,6 @@
     <dependency>
       <groupId>jakarta.servlet</groupId>
       <artifactId>jakarta.servlet-api</artifactId>
-      <version>5.0.0</version>
-      <scope>provided</scope>
     </dependency>
   </dependencies>
 

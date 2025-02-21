@@ -21,7 +21,8 @@
  * under the License.
  */
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <parent>
     <groupId>org.apache.tiles</groupId>
@@ -36,7 +37,7 @@
   <description>Tiles OGNL support: Classes and tag libraries to use OGNL as an expression language in attribute expressions.</description>
 
   <properties>
-  	<tiles.osgi.symbolicName>org.apache.tiles.ognl</tiles.osgi.symbolicName>
+    <tiles.osgi.symbolicName>org.apache.tiles.ognl</tiles.osgi.symbolicName>
   </properties>
 
   <build>
@@ -103,11 +104,6 @@
     <dependency>
       <groupId>org.easymock</groupId>
       <artifactId>easymock</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.easymock</groupId>
-      <artifactId>easymockclassextension</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>

@@ -21,8 +21,10 @@
 
 package org.apache.tiles.startup;
 
-import static org.junit.Assert.*;
-import static org.easymock.EasyMock.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertTrue;
 
 import org.apache.tiles.factory.BasicTilesContainerFactory;
 import org.apache.tiles.request.ApplicationContext;
@@ -36,7 +38,8 @@ import org.junit.Test;
 public class DefaultTilesInitializerTest {
 
     /**
-     * Test method for {@link DefaultTilesInitializer#createContainerFactory(ApplicationContext)}.
+     * Test method for
+     * {@link DefaultTilesInitializer#createContainerFactory(ApplicationContext)}.
      */
     @Test
     public void testCreateContainerFactory() {

@@ -20,7 +20,7 @@
  */
 package org.apache.tiles.util;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.beans.FeatureDescriptor;
 import java.beans.PropertyDescriptor;
@@ -78,7 +78,8 @@ public class CombinedBeanInfoTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.util.CombinedBeanInfo#getDescriptors()}.
+     * Test method for
+     * {@link org.apache.tiles.util.CombinedBeanInfo#getDescriptors()}.
      */
     @Test
     public void testGetDescriptors() {
@@ -86,7 +87,8 @@ public class CombinedBeanInfoTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.util.CombinedBeanInfo#getMappedDescriptors(java.lang.Class)}.
+     * Test method for
+     * {@link org.apache.tiles.util.CombinedBeanInfo#getMappedDescriptors(java.lang.Class)}.
      */
     @Test
     public void testGetMappedDescriptors() {
@@ -95,7 +97,8 @@ public class CombinedBeanInfoTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.util.CombinedBeanInfo#getProperties(java.lang.Class)}.
+     * Test method for
+     * {@link org.apache.tiles.util.CombinedBeanInfo#getProperties(java.lang.Class)}.
      */
     @Test
     public void testGetProperties() {

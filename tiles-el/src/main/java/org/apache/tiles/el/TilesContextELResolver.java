@@ -23,12 +23,12 @@ package org.apache.tiles.el;
 import java.beans.FeatureDescriptor;
 import java.util.Iterator;
 
-import javax.el.ELContext;
-import javax.el.ELResolver;
-
 import org.apache.tiles.request.ApplicationContext;
 import org.apache.tiles.request.Request;
 import org.apache.tiles.util.CombinedBeanInfo;
+
+import jakarta.el.ELContext;
+import jakarta.el.ELResolver;
 
 /**
  * Resolves properties of {@link Request} and

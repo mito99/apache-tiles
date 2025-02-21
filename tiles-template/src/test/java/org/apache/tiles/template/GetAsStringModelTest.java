@@ -21,8 +21,10 @@
 
 package org.apache.tiles.template;
 
-import static org.easymock.EasyMock.*;
-import static org.easymock.classextension.EasyMock.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
 
 import java.io.IOException;
 import java.io.Writer;
@@ -72,6 +74,7 @@ public class GetAsStringModelTest {
      * #execute(boolean, java.lang.String, java.lang.String,
      * java.lang.Object, java.lang.String, java.lang.String, java.lang.String,
      * org.apache.tiles.Attribute, Request, ModelBody)}.
+     * 
      * @throws IOException If something goes wrong.
      */
     @Test
@@ -111,6 +114,7 @@ public class GetAsStringModelTest {
      * #execute(boolean, java.lang.String, java.lang.String,
      * java.lang.Object, java.lang.String, java.lang.String, java.lang.String,
      * org.apache.tiles.Attribute, Request, ModelBody)} when ignore flag is set.
+     * 
      * @throws IOException If something goes wrong.
      */
     @Test

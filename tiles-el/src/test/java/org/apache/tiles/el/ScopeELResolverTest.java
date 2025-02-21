@@ -20,8 +20,14 @@
  */
 package org.apache.tiles.el;
 
-import static org.easymock.classextension.EasyMock.*;
-import static org.junit.Assert.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import java.beans.FeatureDescriptor;
 import java.util.Arrays;
@@ -29,13 +35,12 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import javax.el.ELContext;
-
 import org.apache.tiles.request.ApplicationContext;
 import org.apache.tiles.request.Request;
 import org.junit.Before;
 import org.junit.Test;
 
+import jakarta.el.ELContext;
 
 /**
  * Tests {@link ScopeELResolver}.
@@ -77,7 +82,7 @@ public class ScopeELResolverTest {
         Request request = createMock(Request.class);
 
         expect(elContext.getContext(Request.class)).andReturn(request);
-        expect(request.getAvailableScopes()).andReturn(Arrays.asList(new String[] {"one", "two"}));
+        expect(request.getAvailableScopes()).andReturn(Arrays.asList(new String[] { "one", "two" }));
 
         replay(elContext, request);
         assertFalse(resolver.getFeatureDescriptors(elContext, new Integer(1)).hasNext());
@@ -157,7 +162,7 @@ public class ScopeELResolverTest {
     /**
      * Tests {@link ScopeELResolver#isReadOnly(ELContext, Object, Object)}.
      */
-    @Test(expected=NullPointerException.class)
+    @Test(expected = NullPointerException.class)
     public void testIsReadOnlyNPE() {
         resolver.isReadOnly(null, null, "whatever");
     }

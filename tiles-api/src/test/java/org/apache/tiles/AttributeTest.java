@@ -22,7 +22,6 @@ package org.apache.tiles;
 
 import static org.apache.tiles.CompareUtil.*;
 import static org.easymock.EasyMock.*;
-import static org.easymock.classextension.EasyMock.*;
 import static org.junit.Assert.*;
 
 import java.util.HashSet;
@@ -38,7 +37,6 @@ import org.junit.Test;
  * @version $Rev$ $Date$
  */
 public class AttributeTest {
-
 
     /**
      * Tests {@link Attribute#createTemplateAttribute(String)}.
@@ -207,7 +205,8 @@ public class AttributeTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.Attribute#inherit(org.apache.tiles.Attribute)}.
+     * Test method for
+     * {@link org.apache.tiles.Attribute#inherit(org.apache.tiles.Attribute)}.
      */
     @Test
     public void testInherit() {
@@ -250,7 +249,8 @@ public class AttributeTest {
     }
 
     /**
-     * Tests {@link Attribute#createTemplateAttribute(String, String, String, String)}.
+     * Tests
+     * {@link Attribute#createTemplateAttribute(String, String, String, String)}.
      */
     @Test
     public void testCreateTemplateAttribute() {

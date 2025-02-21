@@ -20,11 +20,6 @@
  */
 package org.apache.tiles.web.util;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.apache.tiles.AttributeContext;
 import org.apache.tiles.TilesContainer;
 import org.apache.tiles.access.TilesAccess;
@@ -35,8 +30,13 @@ import org.apache.tiles.request.servlet.ServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
 /**
- * Tiles dispatching servlet.  Used to invoke
+ * Tiles dispatching servlet. Used to invoke
  * a definition directly.
  */
 public class TilesDispatchServlet extends HttpServlet {
@@ -46,8 +46,7 @@ public class TilesDispatchServlet extends HttpServlet {
      *
      * @since 2.1.2
      */
-    public static final String CONTAINER_KEY_INIT_PARAMETER =
-        "org.apache.tiles.web.util.TilesDispatchServlet.CONTAINER_KEY";
+    public static final String CONTAINER_KEY_INIT_PARAMETER = "org.apache.tiles.web.util.TilesDispatchServlet.CONTAINER_KEY";
 
     /**
      * The logging object.
@@ -65,7 +64,6 @@ public class TilesDispatchServlet extends HttpServlet {
      * different attributes.
      */
     private AttributeContextMutator mutator;
-
 
     /** {@inheritDoc} */
     @Override
@@ -136,7 +134,7 @@ public class TilesDispatchServlet extends HttpServlet {
     class DefaultMutator implements AttributeContextMutator {
 
         /** {@inheritDoc} */
-        public void mutate(AttributeContext context, javax.servlet.ServletRequest request) {
+        public void mutate(AttributeContext context, jakarta.servlet.ServletRequest request) {
             // noop;
         }
     }

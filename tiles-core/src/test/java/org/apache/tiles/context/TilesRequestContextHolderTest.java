@@ -21,8 +21,10 @@
 
 package org.apache.tiles.context;
 
-import static org.junit.Assert.*;
-import static org.easymock.EasyMock.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertSame;
 
 import org.apache.tiles.request.Request;
 import org.junit.Test;
@@ -36,7 +38,8 @@ import org.junit.Test;
 public class TilesRequestContextHolderTest {
 
     /**
-     * Test method for {@link TilesRequestContextHolder#setTilesRequestContext(Request)}.
+     * Test method for
+     * {@link TilesRequestContextHolder#setTilesRequestContext(Request)}.
      */
     @Test
     public void testSetTilesRequestContext() {

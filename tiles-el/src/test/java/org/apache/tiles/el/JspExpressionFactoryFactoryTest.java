@@ -20,16 +20,19 @@
  */
 package org.apache.tiles.el;
 
-import static org.easymock.classextension.EasyMock.*;
-import static org.junit.Assert.*;
-
-import javax.el.ExpressionFactory;
-import javax.servlet.ServletContext;
-import javax.servlet.jsp.JspApplicationContext;
-import javax.servlet.jsp.JspFactory;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertEquals;
 
 import org.apache.tiles.request.ApplicationContext;
 import org.junit.Test;
+
+import jakarta.el.ExpressionFactory;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.jsp.JspApplicationContext;
+import jakarta.servlet.jsp.JspFactory;
 
 /**
  * Tests {@link JspExpressionFactoryFactory}.
@@ -39,7 +42,8 @@ import org.junit.Test;
 public class JspExpressionFactoryFactoryTest {
 
     /**
-     * Test method for {@link org.apache.tiles.el.JspExpressionFactoryFactory#getExpressionFactory()}.
+     * Test method for
+     * {@link org.apache.tiles.el.JspExpressionFactoryFactory#getExpressionFactory()}.
      */
     @Test
     public void testGetExpressionFactory() {
@@ -64,7 +68,8 @@ public class JspExpressionFactoryFactoryTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.el.JspExpressionFactoryFactory#getExpressionFactory()}.
+     * Test method for
+     * {@link org.apache.tiles.el.JspExpressionFactoryFactory#getExpressionFactory()}.
      */
     @Test(expected = IllegalArgumentException.class)
     public void testSetApplicationContextIllegal() {

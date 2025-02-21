@@ -21,7 +21,8 @@
  * under the License.
  */
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <parent>
     <groupId>org.apache.tiles</groupId>
@@ -37,7 +38,7 @@
   </description>
 
   <properties>
-      <tiles.osgi.symbolicName>org.apache.tiles.servlet</tiles.osgi.symbolicName>
+    <tiles.osgi.symbolicName>org.apache.tiles.servlet</tiles.osgi.symbolicName>
   </properties>
 
   <build>
@@ -111,8 +112,8 @@
     </dependency>
 
     <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>servlet-api</artifactId>
+      <groupId>jakarta.servlet</groupId>
+      <artifactId>jakarta.servlet-api</artifactId>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -121,20 +122,20 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>org.easymock</groupId>
-      <artifactId>easymockclassextension</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
       <groupId>org.apache.shale</groupId>
       <artifactId>shale-test</artifactId>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.easymock</groupId>
+      <artifactId>easymock</artifactId>
+      <scope>test</scope>
+    </dependency>
 
     <dependency>
-        <groupId>org.apache.tiles</groupId>
-        <artifactId>tiles-request-servlet</artifactId>
-        <version>${tiles.request.version}</version>
+      <groupId>org.apache.tiles</groupId>
+      <artifactId>tiles-request-servlet</artifactId>
+      <version>${tiles.request.version}</version>
     </dependency>
   </dependencies>
 

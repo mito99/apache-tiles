@@ -21,8 +21,11 @@
 
 package org.apache.tiles.template;
 
-import static org.easymock.EasyMock.*;
-import static org.easymock.classextension.EasyMock.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.notNull;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -62,6 +65,7 @@ public class InsertDefinitionModelTest {
      * Test method for {@link org.apache.tiles.template.InsertDefinitionModel
      * #execute(java.lang.String, java.lang.String, String,
      * String, java.lang.String, java.lang.String, boolean, Request, ModelBody)}.
+     * 
      * @throws IOException If something goes wrong.
      */
     @Test

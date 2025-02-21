@@ -20,7 +20,6 @@
  */
 package org.apache.tiles.locale.impl;
 
-import static org.easymock.classextension.EasyMock.*;
 import static org.junit.Assert.*;
 
 import java.util.Locale;
@@ -28,6 +27,7 @@ import java.util.Map;
 
 import org.apache.tiles.request.Request;
 import org.junit.Test;
+import static org.easymock.EasyMock.*;
 
 /**
  * Tests {@link DefaultLocaleResolver}.

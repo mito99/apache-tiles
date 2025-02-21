@@ -56,7 +56,8 @@ public class TilesAccessTest {
     }
 
     /**
-     * Tests {@link TilesAccess#setContainer(ApplicationContext, TilesContainer, String)}.
+     * Tests
+     * {@link TilesAccess#setContainer(ApplicationContext, TilesContainer, String)}.
      */
     @Test
     public void testSetContainerWithKey() {

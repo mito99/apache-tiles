@@ -20,17 +20,22 @@
  */
 package org.apache.tiles.web.startup;
 
-import static org.easymock.classextension.EasyMock.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.createMockBuilder;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.isA;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
 
 import java.util.Enumeration;
-
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
 
 import org.apache.tiles.request.servlet.ServletApplicationContext;
 import org.apache.tiles.startup.TilesInitializer;
 import org.junit.Test;
+
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
 
 /**
  * Tests {@link AbstractTilesInitializerServlet}.
@@ -40,10 +45,11 @@ import org.junit.Test;
 public class AbstractTilesInitializerServletTest {
 
     /**
-     * Test method for {@link org.apache.tiles.web.startup.AbstractTilesInitializerServlet#init()}.
+     * Test method for
+     * {@link org.apache.tiles.web.startup.AbstractTilesInitializerServlet#init()}.
+     * 
      * @throws ServletException If something goes wrong.
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testInit() throws ServletException {
         AbstractTilesInitializerServlet servlet = createMockBuilder(AbstractTilesInitializerServlet.class).createMock();
@@ -57,6 +63,7 @@ public class AbstractTilesInitializerServletTest {
         expect(servletContext.getInitParameterNames()).andReturn(names);
         expect(config.getInitParameterNames()).andReturn(names);
         expect(names.hasMoreElements()).andReturn(false).times(2);
+        expect(config.getInitParameter("jakarta.servlet.http.legacyDoHead")).andReturn(null);
         initializer.initialize(isA(ServletApplicationContext.class));
         initializer.destroy();
 

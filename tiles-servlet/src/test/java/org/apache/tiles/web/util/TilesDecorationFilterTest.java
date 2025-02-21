@@ -20,28 +20,33 @@
  */
 package org.apache.tiles.web.util;
 
-import static org.easymock.EasyMock.*;
-import static org.easymock.classextension.EasyMock.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.eq;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.isA;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
 
 import java.io.IOException;
 import java.util.Enumeration;
 import java.util.Map;
 
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.tiles.request.ApplicationAccess;
 import org.apache.tiles.AttributeContext;
 import org.apache.tiles.TilesContainer;
+import org.apache.tiles.request.ApplicationAccess;
 import org.apache.tiles.request.ApplicationContext;
 import org.apache.tiles.request.servlet.ServletRequest;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.FilterConfig;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * Tests {@link TilesDecorationFilter}.
@@ -67,9 +72,9 @@ public class TilesDecorationFilterTest {
 
     /**
      * Sets up the test.
+     * 
      * @throws ServletException If something goes wrong.
      */
-    @SuppressWarnings("unchecked")
     @Before
     public void setUp() throws ServletException {
         config = createMock(FilterConfig.class);
@@ -103,11 +108,12 @@ public class TilesDecorationFilterTest {
     }
 
     /**
-     * Test method for {@link TilesDecorationFilter#doFilter(ServletRequest, ServletResponse, FilterChain)}.
+     * Test method for
+     * {@link TilesDecorationFilter#doFilter(ServletRequest, ServletResponse, FilterChain)}.
+     * 
      * @throws ServletException If something goes wrong
-     * @throws IOException If something goes wrong.
+     * @throws IOException      If something goes wrong.
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testDoFilter() throws IOException, ServletException {
         HttpServletRequest request = createMock(HttpServletRequest.class);
@@ -143,8 +149,7 @@ public class TilesDecorationFilterTest {
     public static class CustomAttributeMutator implements AttributeContextMutator {
 
         @Override
-        public void mutate(AttributeContext context,
-                javax.servlet.ServletRequest request) {
+        public void mutate(AttributeContext context, jakarta.servlet.ServletRequest request) {
             // Does nothing.
         }
     }

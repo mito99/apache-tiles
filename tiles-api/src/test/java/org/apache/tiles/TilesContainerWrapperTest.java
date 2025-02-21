@@ -20,8 +20,13 @@
  */
 package org.apache.tiles;
 
-import static org.easymock.classextension.EasyMock.*;
-import static org.junit.Assert.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 
@@ -65,7 +70,8 @@ public class TilesContainerWrapperTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.TilesContainerWrapper#getWrappedContainer()}.
+     * Test method for
+     * {@link org.apache.tiles.TilesContainerWrapper#getWrappedContainer()}.
      */
     @Test
     public void testGetWrappedContainer() {
@@ -75,7 +81,8 @@ public class TilesContainerWrapperTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.TilesContainerWrapper#endContext(org.apache.tiles.request.Request)}.
+     * Test method for
+     * {@link org.apache.tiles.TilesContainerWrapper#endContext(org.apache.tiles.request.Request)}.
      */
     @Test
     public void testEndContext() {
@@ -104,7 +111,8 @@ public class TilesContainerWrapperTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.TilesContainerWrapper#getApplicationContext()}.
+     * Test method for
+     * {@link org.apache.tiles.TilesContainerWrapper#getApplicationContext()}.
      */
     @Test
     public void testGetApplicationContext() {
@@ -148,7 +156,8 @@ public class TilesContainerWrapperTest {
     }
 
     /**
-     * Test method for {@link TilesContainerWrapper#isValidDefinition(String, Request)}.
+     * Test method for
+     * {@link TilesContainerWrapper#isValidDefinition(String, Request)}.
      */
     @Test
     public void testIsValidDefinition() {
@@ -206,6 +215,7 @@ public class TilesContainerWrapperTest {
 
     /**
      * Test method for {@link TilesContainerWrapper#render(Attribute, Request)}.
+     * 
      * @throws IOException If something goes wrong.
      */
     @Test
@@ -221,7 +231,8 @@ public class TilesContainerWrapperTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.TilesContainerWrapper#renderContext(org.apache.tiles.request.Request)}.
+     * Test method for
+     * {@link org.apache.tiles.TilesContainerWrapper#renderContext(org.apache.tiles.request.Request)}.
      */
     @Test
     public void testRenderContext() {
@@ -235,7 +246,8 @@ public class TilesContainerWrapperTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.TilesContainerWrapper#startContext(org.apache.tiles.request.Request)}.
+     * Test method for
+     * {@link org.apache.tiles.TilesContainerWrapper#startContext(org.apache.tiles.request.Request)}.
      */
     @Test
     public void testStartContext() {

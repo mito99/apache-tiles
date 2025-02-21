@@ -23,15 +23,15 @@ package org.apache.tiles.jsp.taglib;
 
 import java.io.IOException;
 
-import javax.servlet.jsp.JspException;
-import javax.servlet.jsp.tagext.SimpleTagSupport;
-import javax.servlet.jsp.tagext.TagData;
-import javax.servlet.jsp.tagext.TagExtraInfo;
-import javax.servlet.jsp.tagext.VariableInfo;
-
 import org.apache.tiles.autotag.core.runtime.AutotagRuntime;
 import org.apache.tiles.request.Request;
 import org.apache.tiles.template.ImportAttributeModel;
+
+import jakarta.servlet.jsp.JspException;
+import jakarta.servlet.jsp.tagext.SimpleTagSupport;
+import jakarta.servlet.jsp.tagext.TagData;
+import jakarta.servlet.jsp.tagext.TagExtraInfo;
+import jakarta.servlet.jsp.tagext.VariableInfo;
 
 /**
  * Exposes am attribute as a scripting variable within the page.
@@ -85,7 +85,7 @@ public class UseAttributeTag extends SimpleTagSupport {
      * Sets the id of the imported scripting variable.
      *
      * @param id
-     *            The id of the imported scripting variable.
+     *           The id of the imported scripting variable.
      * @since 2.2.0
      */
     public void setId(String id) {
@@ -96,7 +96,7 @@ public class UseAttributeTag extends SimpleTagSupport {
      * Set the scope.
      *
      * @param scope
-     *            Scope.
+     *              Scope.
      */
     public void setScope(String scope) {
         this.scopeName = scope;
@@ -124,7 +124,7 @@ public class UseAttributeTag extends SimpleTagSupport {
      * Set the name.
      *
      * @param name
-     *            The new name
+     *             The new name
      */
     public void setName(String name) {
         this.name = name;
@@ -134,10 +134,10 @@ public class UseAttributeTag extends SimpleTagSupport {
      * Set ignore flag.
      *
      * @param ignore
-     *            default: <code>false</code>: Exception is thrown when
-     *            attribute is not found, set to <code>
+     *               default: <code>false</code>: Exception is thrown when
+     *               attribute is not found, set to <code>
      *               true</code> to
-     *            ignore missing attributes silently
+     *               ignore missing attributes silently
      */
     public void setIgnore(boolean ignore) {
         this.ignore = ignore;
@@ -169,7 +169,7 @@ public class UseAttributeTag extends SimpleTagSupport {
      * Set the class name.
      *
      * @param name
-     *            The new class name.
+     *             The new class name.
      */
     public void setClassname(String name) {
         this.classname = name;

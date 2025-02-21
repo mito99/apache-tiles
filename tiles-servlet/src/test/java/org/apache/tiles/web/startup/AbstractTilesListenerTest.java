@@ -20,15 +20,19 @@
  */
 package org.apache.tiles.web.startup;
 
-import static org.easymock.EasyMock.*;
-import static org.easymock.classextension.EasyMock.*;
-
-import javax.servlet.ServletContext;
-import javax.servlet.ServletContextEvent;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.createMockBuilder;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.isA;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
 
 import org.apache.tiles.request.servlet.ServletApplicationContext;
 import org.apache.tiles.startup.TilesInitializer;
 import org.junit.Test;
+
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletContextEvent;
 
 /**
  * Tests {@link AbstractTilesListener}.
@@ -38,7 +42,8 @@ import org.junit.Test;
 public class AbstractTilesListenerTest {
 
     /**
-     * Test method for {@link AbstractTilesListener#contextInitialized(ServletContextEvent)}.
+     * Test method for
+     * {@link AbstractTilesListener#contextInitialized(ServletContextEvent)}.
      */
     @Test
     public void testContextInitialized() {

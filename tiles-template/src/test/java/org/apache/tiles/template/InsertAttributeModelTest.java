@@ -21,7 +21,10 @@
 
 package org.apache.tiles.template;
 
-import static org.easymock.EasyMock.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
 
 import java.io.IOException;
 import java.util.ArrayDeque;
@@ -69,6 +72,7 @@ public class InsertAttributeModelTest {
      * Test method for {@link org.apache.tiles.template.InsertAttributeModel
      * #execute(boolean, String, String, Object, String, String, String,
      * Attribute, boolean, Request, ModelBody)}.
+     * 
      * @throws IOException If something goes wrong.
      */
     @Test
@@ -103,6 +107,7 @@ public class InsertAttributeModelTest {
      * Test method for {@link org.apache.tiles.template.InsertAttributeModel
      * #execute(boolean, String, String, Object, String, String, String,
      * Attribute, boolean, Request, ModelBody)} when ignore flag is set.
+     * 
      * @throws IOException If something goes wrong.
      */
     @Test

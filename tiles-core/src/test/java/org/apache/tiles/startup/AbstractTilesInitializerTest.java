@@ -21,8 +21,12 @@
 
 package org.apache.tiles.startup;
 
-import static org.easymock.classextension.EasyMock.*;
-import static org.junit.Assert.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.easymock.EasyMock.expect;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import java.util.Map;
 
@@ -68,7 +72,8 @@ public class AbstractTilesInitializerTest {
     }
 
     /**
-     * Test method for {@link AbstractTilesInitializer#initialize(ApplicationContext)}.
+     * Test method for
+     * {@link AbstractTilesInitializer#initialize(ApplicationContext)}.
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -91,7 +96,8 @@ public class AbstractTilesInitializerTest {
     }
 
     /**
-     * Test method for {@link AbstractTilesInitializer#createTilesApplicationContext(ApplicationContext)}.
+     * Test method for
+     * {@link AbstractTilesInitializer#createTilesApplicationContext(ApplicationContext)}.
      */
     @Test
     public void testCreateTilesApplicationContext() {
@@ -102,7 +108,8 @@ public class AbstractTilesInitializerTest {
     }
 
     /**
-     * Test method for {@link AbstractTilesInitializer#getContainerKey(ApplicationContext)}.
+     * Test method for
+     * {@link AbstractTilesInitializer#getContainerKey(ApplicationContext)}.
      */
     @Test
     public void testGetContainerKey() {
@@ -113,7 +120,8 @@ public class AbstractTilesInitializerTest {
     }
 
     /**
-     * Test method for {@link AbstractTilesInitializer#createContainer(ApplicationContext)}.
+     * Test method for
+     * {@link AbstractTilesInitializer#createContainer(ApplicationContext)}.
      */
     @Test
     public void testCreateContainer() {

@@ -21,7 +21,8 @@
  * under the License.
  */
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.apache.tiles</groupId>
   <artifactId>tiles-template</artifactId>
@@ -33,8 +34,8 @@
     <version>3.1-SNAPSHOT</version>
   </parent>
   <properties>
-      <!-- decrease this whenever possible -->
-      <checkstyle.maxAllowedViolations>2</checkstyle.maxAllowedViolations>
+    <!-- decrease this whenever possible -->
+    <checkstyle.maxAllowedViolations>2</checkstyle.maxAllowedViolations>
   </properties>
   <build>
     <plugins>
@@ -43,15 +44,15 @@
         <artifactId>maven-autotag-plugin</artifactId>
         <version>${tiles.autotag.version}</version>
         <executions>
-            <execution>
-                <goals>
-                    <goal>create-descriptor</goal>
-                </goals>
-                <configuration>
-                    <name>tiles</name>
-                    <requestClass>org.apache.tiles.request.Request</requestClass>
-                </configuration>
-            </execution>
+          <execution>
+            <goals>
+              <goal>create-descriptor</goal>
+            </goals>
+            <configuration>
+              <name>tiles</name>
+              <requestClass>org.apache.tiles.request.Request</requestClass>
+            </configuration>
+          </execution>
         </executions>
       </plugin>
     </plugins>
@@ -91,14 +92,9 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>org.easymock</groupId>
-      <artifactId>easymockclassextension</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-        <groupId>org.apache.tiles</groupId>
-        <artifactId>tiles-autotag-core-runtime</artifactId>
-        <version>${tiles.autotag.version}</version>
+      <groupId>org.apache.tiles</groupId>
+      <artifactId>tiles-autotag-core-runtime</artifactId>
+      <version>${tiles.autotag.version}</version>
     </dependency>
   </dependencies>
 </project>

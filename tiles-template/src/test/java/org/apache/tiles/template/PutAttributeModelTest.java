@@ -21,8 +21,12 @@
 
 package org.apache.tiles.template;
 
-import static org.easymock.EasyMock.*;
-import static org.easymock.classextension.EasyMock.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.eq;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.notNull;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
 
 import java.io.IOException;
 import java.util.ArrayDeque;
@@ -63,6 +67,7 @@ public class PutAttributeModelTest {
      * Test method for {@link org.apache.tiles.template.PutAttributeModel
      * #execute(String, Object, String, String, String,
      * boolean, Request, ModelBody)}.
+     * 
      * @throws IOException If something goes wrong.
      */
     @Test

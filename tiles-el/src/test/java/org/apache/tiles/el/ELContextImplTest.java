@@ -20,16 +20,19 @@
  */
 package org.apache.tiles.el;
 
-import static org.easymock.classextension.EasyMock.*;
-import static org.junit.Assert.*;
-
-import javax.el.ELResolver;
-import javax.el.FunctionMapper;
-import javax.el.ValueExpression;
-import javax.el.VariableMapper;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import jakarta.el.ELResolver;
+import jakarta.el.FunctionMapper;
+import jakarta.el.ValueExpression;
+import jakarta.el.VariableMapper;
 
 /**
  * Tests {@link ELContextImpl}.
@@ -68,7 +71,8 @@ public class ELContextImplTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.el.ELContextImpl#setFunctionMapper(javax.el.FunctionMapper)}.
+     * Test method for
+     * {@link org.apache.tiles.el.ELContextImpl#setFunctionMapper(javax.el.FunctionMapper)}.
      */
     @Test
     public void testSetFunctionMapper() {
@@ -81,7 +85,8 @@ public class ELContextImplTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.el.ELContextImpl#setVariableMapper(javax.el.VariableMapper)}.
+     * Test method for
+     * {@link org.apache.tiles.el.ELContextImpl#setVariableMapper(javax.el.VariableMapper)}.
      */
     @Test
     public void testSetVariableMapper() {

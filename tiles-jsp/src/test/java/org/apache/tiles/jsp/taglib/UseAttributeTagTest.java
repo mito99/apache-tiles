@@ -20,21 +20,16 @@
  */
 package org.apache.tiles.jsp.taglib;
 
-import static org.easymock.EasyMock.*;
-import static org.easymock.classextension.EasyMock.*;
-import static org.junit.Assert.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.isA;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.jsp.JspException;
-import javax.servlet.jsp.PageContext;
-import javax.servlet.jsp.tagext.JspFragment;
-import javax.servlet.jsp.tagext.JspTag;
-import javax.servlet.jsp.tagext.TagData;
-import javax.servlet.jsp.tagext.VariableInfo;
 
 import org.apache.tiles.Attribute;
 import org.apache.tiles.AttributeContext;
@@ -45,6 +40,15 @@ import org.apache.tiles.request.ApplicationContext;
 import org.apache.tiles.request.jsp.JspRequest;
 import org.junit.Before;
 import org.junit.Test;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.jsp.JspException;
+import jakarta.servlet.jsp.PageContext;
+import jakarta.servlet.jsp.tagext.JspFragment;
+import jakarta.servlet.jsp.tagext.JspTag;
+import jakarta.servlet.jsp.tagext.TagData;
+import jakarta.servlet.jsp.tagext.VariableInfo;
 
 /**
  * Tests {@link UseAttributeTag}.
@@ -67,7 +71,9 @@ public class UseAttributeTagTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.jsp.taglib.UseAttributeTag#execute(org.apache.tiles.request.Request)}.
+     * Test method for
+     * {@link org.apache.tiles.jsp.taglib.UseAttributeTag#execute(org.apache.tiles.request.Request)}.
+     * 
      * @throws IOException
      * @throws JspException
      */
@@ -90,14 +96,15 @@ public class UseAttributeTagTest {
         expect(applicationContext.getApplicationScope()).andReturn(applicationScope).anyTimes();
         expect(pageContext.getRequest()).andReturn(httpServletRequest);
         expect(pageContext.getResponse()).andReturn(httpServletResponse);
-        expect(pageContext.getAttribute(TilesAccess.CURRENT_CONTAINER_ATTRIBUTE_NAME, PageContext.REQUEST_SCOPE)).andReturn(container);
+        expect(pageContext.getAttribute(TilesAccess.CURRENT_CONTAINER_ATTRIBUTE_NAME, PageContext.REQUEST_SCOPE))
+                .andReturn(container);
         expect(container.getAttributeContext(isA(JspRequest.class))).andReturn(attributeContext);
         expect(attributeContext.getAttribute("name")).andReturn(attribute);
         expect(container.evaluate(isA(Attribute.class), isA(JspRequest.class))).andReturn(new Integer(1));
         pageContext.setAttribute("id", new Integer(1), PageContext.PAGE_SCOPE);
         replay(jspBody, pageContext, parent,
-               applicationContext, httpServletRequest, httpServletResponse,
-               applicationScope, container, attributeContext, attribute);
+                applicationContext, httpServletRequest, httpServletResponse,
+                applicationScope, container, attributeContext, attribute);
         tag.setName("name");
         tag.setScope("page");
         tag.setId("id");
@@ -107,12 +114,13 @@ public class UseAttributeTagTest {
         tag.setParent(parent);
         tag.doTag();
         verify(jspBody, pageContext, parent,
-               applicationContext, httpServletRequest, httpServletResponse,
-               container, attributeContext, attribute);
+                applicationContext, httpServletRequest, httpServletResponse,
+                container, attributeContext, attribute);
     }
 
     /**
-     * Test method for {@link org.apache.tiles.jsp.taglib.UseAttributeTag#setId(java.lang.String)}.
+     * Test method for
+     * {@link org.apache.tiles.jsp.taglib.UseAttributeTag#setId(java.lang.String)}.
      */
     @Test
     public void testSetId() {
@@ -121,7 +129,8 @@ public class UseAttributeTagTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.jsp.taglib.UseAttributeTag#getScope()}.
+     * Test method for
+     * {@link org.apache.tiles.jsp.taglib.UseAttributeTag#getScope()}.
      */
     @Test
     public void testGetScope() {
@@ -130,7 +139,8 @@ public class UseAttributeTagTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.jsp.taglib.UseAttributeTag#setName(java.lang.String)}.
+     * Test method for
+     * {@link org.apache.tiles.jsp.taglib.UseAttributeTag#setName(java.lang.String)}.
      */
     @Test
     public void testSetName() {
@@ -139,7 +149,8 @@ public class UseAttributeTagTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.jsp.taglib.UseAttributeTag#setIgnore(boolean)}.
+     * Test method for
+     * {@link org.apache.tiles.jsp.taglib.UseAttributeTag#setIgnore(boolean)}.
      */
     @Test
     public void testSetIgnore() {
@@ -148,7 +159,8 @@ public class UseAttributeTagTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.jsp.taglib.UseAttributeTag#setClassname(java.lang.String)}.
+     * Test method for
+     * {@link org.apache.tiles.jsp.taglib.UseAttributeTag#setClassname(java.lang.String)}.
      */
     @Test
     public void testSetClassname() {
@@ -157,7 +169,8 @@ public class UseAttributeTagTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.jsp.taglib.UseAttributeTag#getScriptingVariable()}.
+     * Test method for
+     * {@link org.apache.tiles.jsp.taglib.UseAttributeTag#getScriptingVariable()}.
      */
     @Test
     public void testGetScriptingVariable() {

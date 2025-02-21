@@ -21,12 +21,12 @@
 
 package org.apache.tiles.el;
 
-import javax.el.ExpressionFactory;
-import javax.servlet.ServletContext;
-import javax.servlet.jsp.JspFactory;
-
 import org.apache.tiles.request.ApplicationContext;
 import org.apache.tiles.request.ApplicationContextAware;
+
+import jakarta.el.ExpressionFactory;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.jsp.JspFactory;
 
 /**
  * Uses the JSP 2.1 {@link ExpressionFactory} to be used in Tiles.
@@ -52,7 +52,7 @@ public class JspExpressionFactoryFactory implements ExpressionFactoryFactory,
         } else {
             throw new IllegalArgumentException(
                     "The application context does not hold an instance of "
-                    + "ServletContext, consider using JuelExpressionFactoryFactory");
+                            + "ServletContext, consider using JuelExpressionFactoryFactory");
         }
     }
 

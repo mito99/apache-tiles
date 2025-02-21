@@ -21,7 +21,6 @@
 package org.apache.tiles.definition.dao;
 
 import static org.easymock.EasyMock.*;
-import static org.easymock.classextension.EasyMock.*;
 import static org.junit.Assert.*;
 
 import java.io.ByteArrayInputStream;
@@ -102,6 +101,7 @@ public class BaseLocaleUrlDefinitionDAOTest {
 
     /**
      * Sets up the test.
+     * 
      * @throws IOException
      */
     @Before
@@ -114,9 +114,11 @@ public class BaseLocaleUrlDefinitionDAOTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.definition.dao.BaseLocaleUrlDefinitionDAO#refreshRequired()}.
-     * @throws URISyntaxException If something goes wrong.
-     * @throws IOException If something goes wrong.
+     * Test method for
+     * {@link org.apache.tiles.definition.dao.BaseLocaleUrlDefinitionDAO#refreshRequired()}.
+     * 
+     * @throws URISyntaxException   If something goes wrong.
+     * @throws IOException          If something goes wrong.
      * @throws InterruptedException If something goes wrong.
      */
     @Test
@@ -124,7 +126,8 @@ public class BaseLocaleUrlDefinitionDAOTest {
         // Set up multiple data sources.
         Map<String, Attribute> attribs = new HashMap<String, Attribute>();
         attribs.put("testparm", new Attribute("testval"));
-        Definition rewriteTest = new Definition("rewrite.test", Attribute.createTemplateAttribute("/test.jsp"), attribs);
+        Definition rewriteTest = new Definition("rewrite.test", Attribute.createTemplateAttribute("/test.jsp"),
+                attribs);
         expect(dao.getDefinition("rewrite.test", null)).andReturn(rewriteTest);
 
         replay(dao);
@@ -165,7 +168,9 @@ public class BaseLocaleUrlDefinitionDAOTest {
     }
 
     /**
-     * Test method for {@link BaseLocaleUrlDefinitionDAO#loadDefinitionsFromURL(URL)}.
+     * Test method for
+     * {@link BaseLocaleUrlDefinitionDAO#loadDefinitionsFromURL(URL)}.
+     * 
      * @throws MalformedURLException If something goes wrong.
      */
     @Test

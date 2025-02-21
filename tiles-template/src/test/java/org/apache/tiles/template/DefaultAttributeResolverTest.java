@@ -21,8 +21,12 @@
 
 package org.apache.tiles.template;
 
-import static org.junit.Assert.*;
-import static org.easymock.EasyMock.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import org.apache.tiles.Attribute;
 import org.apache.tiles.AttributeContext;
@@ -54,8 +58,10 @@ public class DefaultAttributeResolverTest {
 
     /**
      * Test method for {@link org.apache.tiles.template.DefaultAttributeResolver
-     * #computeAttribute(org.apache.tiles.TilesContainer, org.apache.tiles.Attribute,
-     * java.lang.String, java.lang.String, boolean, java.lang.Object, java.lang.String,
+     * #computeAttribute(org.apache.tiles.TilesContainer,
+     * org.apache.tiles.Attribute,
+     * java.lang.String, java.lang.String, boolean, java.lang.Object,
+     * java.lang.String,
      * java.lang.String, Request)}.
      */
     @Test
@@ -77,8 +83,10 @@ public class DefaultAttributeResolverTest {
 
     /**
      * Test method for {@link org.apache.tiles.template.DefaultAttributeResolver
-     * #computeAttribute(org.apache.tiles.TilesContainer, org.apache.tiles.Attribute,
-     * java.lang.String, java.lang.String, boolean, java.lang.Object, java.lang.String,
+     * #computeAttribute(org.apache.tiles.TilesContainer,
+     * org.apache.tiles.Attribute,
+     * java.lang.String, java.lang.String, boolean, java.lang.Object,
+     * java.lang.String,
      * java.lang.String, Request)}.
      */
     @Test
@@ -96,8 +104,10 @@ public class DefaultAttributeResolverTest {
 
     /**
      * Test method for {@link org.apache.tiles.template.DefaultAttributeResolver
-     * #computeAttribute(org.apache.tiles.TilesContainer, org.apache.tiles.Attribute,
-     * java.lang.String, java.lang.String, boolean, java.lang.Object, java.lang.String,
+     * #computeAttribute(org.apache.tiles.TilesContainer,
+     * org.apache.tiles.Attribute,
+     * java.lang.String, java.lang.String, boolean, java.lang.Object,
+     * java.lang.String,
      * java.lang.String, Request)}.
      */
     @Test
@@ -121,8 +131,10 @@ public class DefaultAttributeResolverTest {
 
     /**
      * Test method for {@link org.apache.tiles.template.DefaultAttributeResolver
-     * #computeAttribute(org.apache.tiles.TilesContainer, org.apache.tiles.Attribute,
-     * java.lang.String, java.lang.String, boolean, java.lang.Object, java.lang.String,
+     * #computeAttribute(org.apache.tiles.TilesContainer,
+     * org.apache.tiles.Attribute,
+     * java.lang.String, java.lang.String, boolean, java.lang.Object,
+     * java.lang.String,
      * java.lang.String, Request)}.
      */
     @Test(expected = NoSuchAttributeException.class)
@@ -142,8 +154,10 @@ public class DefaultAttributeResolverTest {
 
     /**
      * Test method for {@link org.apache.tiles.template.DefaultAttributeResolver
-     * #computeAttribute(org.apache.tiles.TilesContainer, org.apache.tiles.Attribute,
-     * java.lang.String, java.lang.String, boolean, java.lang.Object, java.lang.String,
+     * #computeAttribute(org.apache.tiles.TilesContainer,
+     * org.apache.tiles.Attribute,
+     * java.lang.String, java.lang.String, boolean, java.lang.Object,
+     * java.lang.String,
      * java.lang.String, Request)}.
      */
     @Test

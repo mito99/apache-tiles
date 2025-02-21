@@ -22,7 +22,6 @@
 package org.apache.tiles.definition;
 
 import static org.easymock.EasyMock.*;
-import static org.easymock.classextension.EasyMock.*;
 import static org.junit.Assert.*;
 
 import java.util.Locale;
@@ -41,7 +40,8 @@ import org.junit.Test;
 public class UnresolvingLocaleDefinitionsFactoryTest {
 
     /**
-     * Test method for {@link UnresolvingLocaleDefinitionsFactory#getDefinition(String, Request)}.
+     * Test method for
+     * {@link UnresolvingLocaleDefinitionsFactory#getDefinition(String, Request)}.
      */
     @SuppressWarnings("unchecked")
     @Test
