@@ -85,8 +85,8 @@
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>commons-digester</groupId>
-                <artifactId>commons-digester</artifactId>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-digester3</artifactId>
                 <version>${commons-digester.version}</version>
                 <exclusions>
                     <exclusion>
@@ -212,7 +212,7 @@
         <jakarta.servlet.jsp.version>3.1.0</jakarta.servlet.jsp.version>
         <jakarta.el.version>4.0.0</jakarta.el.version>
         <shale.version>1.0.5</shale.version>
-        <commons-digester.version>2.0</commons-digester.version>
+        <commons-digester.version>3.2</commons-digester.version>
         <ognl.version>3.3.5</ognl.version>
     </properties>
 

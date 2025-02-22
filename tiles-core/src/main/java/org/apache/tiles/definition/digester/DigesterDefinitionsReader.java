@@ -27,8 +27,8 @@ import java.net.URL;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import org.apache.commons.digester.Digester;
-import org.apache.commons.digester.Rule;
+import org.apache.commons.digester3.Digester;
+import org.apache.commons.digester3.Rule;
 import org.apache.tiles.Attribute;
 import org.apache.tiles.Definition;
 import org.apache.tiles.Expression;
@@ -42,7 +42,8 @@ import org.xml.sax.SAXParseException;
 
 /**
  * Reads {@link Definition} objects from
- * an XML InputStream using Digester. <p/>
+ * an XML InputStream using Digester.
+ * <p/>
  * <p>
  * This <code>DefinitionsReader</code> implementation expects the source to be
  * passed as an <code>InputStream</code>. It parses XML data from the source
@@ -56,7 +57,8 @@ import org.xml.sax.SAXParseException;
  * by default. To enable DTD validation for XML Definition files, give the init
  * method a parameter with a key of
  * <code>org.apache.tiles.definition.digester.DigesterDefinitionsReader.PARSER_VALIDATE</code>
- * and a value of <code>&quot;true&quot;</code>. <p/>
+ * and a value of <code>&quot;true&quot;</code>.
+ * <p/>
  * <p>
  * The Definition objects are stored internally in a Map. The Map is stored as
  * an instance variable rather than a local variable in the <code>read</code>
@@ -71,8 +73,7 @@ public class DigesterDefinitionsReader implements DefinitionsReader {
     /**
      * Digester validation parameter name.
      */
-    public static final String PARSER_VALIDATE_PARAMETER_NAME =
-        "org.apache.tiles.definition.digester.DigesterDefinitionsReader.PARSER_VALIDATE";
+    public static final String PARSER_VALIDATE_PARAMETER_NAME = "org.apache.tiles.definition.digester.DigesterDefinitionsReader.PARSER_VALIDATE";
 
     // Digester rules constants for tag interception.
 
@@ -87,7 +88,7 @@ public class DigesterDefinitionsReader implements DefinitionsReader {
     private static final String PUT_TAG = "*/definition/put-attribute";
 
     /**
-     * Intercepts a &lt;definition&gt; inside a  &lt;put-attribute&gt; tag.
+     * Intercepts a &lt;definition&gt; inside a &lt;put-attribute&gt; tag.
      */
     private static final String PUT_DEFINITION_TAG = "*/put-attribute/definition";
 
@@ -119,24 +120,21 @@ public class DigesterDefinitionsReader implements DefinitionsReader {
      *
      * @since 2.1.0
      */
-    protected static final String DEFINITION_HANDLER_CLASS =
-        Definition.class.getName();
+    protected static final String DEFINITION_HANDLER_CLASS = Definition.class.getName();
 
     /**
      * The handler to create attributes.
      *
      * @since 2.1.0
      */
-    protected static final String PUT_ATTRIBUTE_HANDLER_CLASS =
-        Attribute.class.getName();
+    protected static final String PUT_ATTRIBUTE_HANDLER_CLASS = Attribute.class.getName();
 
     /**
      * The handler to create list attributes.
      *
      * @since 2.1.0
      */
-    protected static final String LIST_HANDLER_CLASS =
-        ListAttribute.class.getName();
+    protected static final String LIST_HANDLER_CLASS = ListAttribute.class.getName();
 
     /**
      * Digester rule to manage definition filling.
@@ -148,7 +146,7 @@ public class DigesterDefinitionsReader implements DefinitionsReader {
         /** {@inheritDoc} */
         @Override
         public void begin(String namespace, String name, Attributes attributes) {
-            Definition definition = (Definition) digester.peek();
+            Definition definition = (Definition) getDigester().peek();
             definition.setName(attributes.getValue("name"));
             definition.setPreparer(attributes.getValue("preparer"));
             String extendsAttribute = attributes.getValue("extends");
@@ -180,7 +178,7 @@ public class DigesterDefinitionsReader implements DefinitionsReader {
         /** {@inheritDoc} */
         @Override
         public void begin(String namespace, String name, Attributes attributes) {
-            Attribute attribute = (Attribute) digester.peek();
+            Attribute attribute = (Attribute) getDigester().peek();
             attribute.setValue(attributes.getValue("value"));
             String expression = attributes.getValue("expression");
             attribute.setExpressionObject(Expression
@@ -201,8 +199,8 @@ public class DigesterDefinitionsReader implements DefinitionsReader {
         /** {@inheritDoc} */
         @Override
         public void begin(String namespace, String name, Attributes attributes) {
-            Attribute attribute = (Attribute) digester.peek(0);
-            Definition definition = (Definition) digester.peek(1);
+            Attribute attribute = (Attribute) getDigester().peek(0);
+            Definition definition = (Definition) getDigester().peek(1);
             definition.putAttribute(attributes.getValue("name"), attribute,
                     "true".equals(attributes.getValue("cascade")));
         }
@@ -219,7 +217,7 @@ public class DigesterDefinitionsReader implements DefinitionsReader {
         /** {@inheritDoc} */
         @Override
         public void begin(String namespace, String name, Attributes attributes) {
-            Definition definition = (Definition) digester.peek(0);
+            Definition definition = (Definition) getDigester().peek(0);
             if (definition.getName() == null) {
                 definition.setName(getNextUniqueDefinitionName(definitions));
             }
@@ -237,7 +235,7 @@ public class DigesterDefinitionsReader implements DefinitionsReader {
 
     /**
      * The set of public identifiers, and corresponding resource names for
-     * the versions of the configuration file DTDs we know about.  There
+     * the versions of the configuration file DTDs we know about. There
      * <strong>MUST</strong> be an even number of Strings in this list!
      */
     protected String[] registrations;
@@ -266,7 +264,7 @@ public class DigesterDefinitionsReader implements DefinitionsReader {
         String[] registrations = getRegistrations();
         for (int i = 0; i < registrations.length; i += 2) {
             URL url = this.getClass().getResource(
-                registrations[i + 1]);
+                    registrations[i + 1]);
             if (url != null) {
                 digester.register(registrations[i], url.toString());
             }
@@ -279,7 +277,7 @@ public class DigesterDefinitionsReader implements DefinitionsReader {
      * Sets the validation of XML files.
      *
      * @param validating <code>true</code> means that XML validation is turned
-     * on. <code>false</code> otherwise.
+     *                   on. <code>false</code> otherwise.
      * @since 3.3.0
      */
     public void setValidating(boolean validating) {
@@ -296,7 +294,7 @@ public class DigesterDefinitionsReader implements DefinitionsReader {
      * @return a Map of <code>Definition</code> objects read from
      *         the source.
      * @throws DefinitionsFactoryException If the source is invalid or
-     *          an error occurs when reading definitions.
+     *                                     an error occurs when reading definitions.
      */
     public Map<String, Definition> read(Object source) {
         // This is an instance variable instead of a local variable because
@@ -314,22 +312,22 @@ public class DigesterDefinitionsReader implements DefinitionsReader {
             input = (InputStream) source;
         } catch (ClassCastException e) {
             throw new DefinitionsFactoryException(
-                "Invalid source type.  Requires java.io.InputStream.", e);
+                    "Invalid source type.  Requires java.io.InputStream.", e);
         }
 
         try {
             // set first object in stack
-            //digester.clear();
+            // digester.clear();
             digester.push(this);
             // parse
             digester.parse(input);
 
         } catch (SAXException e) {
             throw new DefinitionsFactoryException(
-                "XML error reading definitions.", e);
+                    "XML error reading definitions.", e);
         } catch (IOException e) {
             throw new DefinitionsFactoryException(
-                "I/O Error reading definitions.", e);
+                    "I/O Error reading definitions.", e);
         } finally {
             digester.clear();
         }
@@ -346,7 +344,6 @@ public class DigesterDefinitionsReader implements DefinitionsReader {
     protected void initSyntax(Digester digester) {
         initDigesterForTilesDefinitionsSyntax(digester);
     }
-
 
     /**
      * Init digester for Tiles syntax with first element = tiles-definitions.
@@ -437,14 +434,14 @@ public class DigesterDefinitionsReader implements DefinitionsReader {
      * Returns the registrations for local DTDs.
      *
      * @return An array containing the locations for registrations of local
-     * DTDs.
+     *         DTDs.
      * @since 2.1.0
      */
     protected String[] getRegistrations() {
         if (registrations == null) {
             registrations = new String[] {
-                "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN",
-                "/org/apache/tiles/resources/tiles-config_3_0.dtd"};
+                    "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN",
+                    "/org/apache/tiles/resources/tiles-config_3_0.dtd" };
         }
         return registrations;
     }
